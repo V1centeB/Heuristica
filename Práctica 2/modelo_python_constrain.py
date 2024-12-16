@@ -1,75 +1,126 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 from constraint import Problem, AllDifferentConstraint
-from inputs_file import leer_fichero, escribir_csv, argumentos_programa
+import csv
 
-def parse_input(buffer):
-    """
-    Parsea el contenido del archivo de entrada y devuelve los datos necesarios.
-    """
-    franjas_horarias = int(buffer[0])
-    talleres_std = [tuple(map(int, pos.split(','))) for pos in buffer[2].split()]
-    talleres_spc = [tuple(map(int, pos.split(','))) for pos in buffer[3].split()]
-    parkings = [tuple(map(int, pos.split(','))) for pos in buffer[4].split()]
-    aviones = []
-    for line in buffer[5:]:
-        parts = line.split('-')
-        aviones.append({
-            'ID': parts[0],
-            'TIPO': parts[1],
-            'RESTR': parts[2] == 'T',
-            'T1': int(parts[3]),
-            'T2': int(parts[4])
-        })
-    return franjas_horarias, talleres_std, talleres_spc, parkings, aviones
+# Leer archivo de entrada
+def read_input_file(file_path):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
 
-def csp_aircraft_maintenance(buffer, output_path):
-    """
-    Modelo y resolución del problema CSP usando python-constraint.
-    """
-    franjas_horarias, talleres_std, talleres_spc, parkings, aviones = parse_input(buffer)
+        # Parámetros iniciales
+        franjas_horarias = int(lines[0].strip())
+        tam_matriz = tuple(map(int, lines[1].strip().split('x')))
+
+        # Talleres y parkings
+        talleres_std = [tuple(map(int, pos.split(','))) for pos in lines[2].strip().split()]
+        talleres_spc = [tuple(map(int, pos.split(','))) for pos in lines[3].strip().split()]
+        parkings = [tuple(map(int, pos.split(','))) for pos in lines[4].strip().split()]
+
+        # Información de aviones
+        aviones = []
+        for line in lines[5:]:
+            if line.strip():
+                parts = line.strip().split('-')
+                aviones.append({
+                    'id': int(parts[0]),
+                    'tipo': parts[1],
+                    'restr': parts[2] == 'T',
+                    't1': int(parts[3]),
+                    't2': int(parts[4])
+                })
+
+    return franjas_horarias, tam_matriz, talleres_std, talleres_spc, parkings, aviones
+
+
+# Pre-cálculo de posiciones adyacentes
+def precalculate_adyacentes(tam_matriz):
+    adyacencias = {}
+    for i in range(tam_matriz[0]):
+        for j in range(tam_matriz[1]):
+            pos = (i, j)
+            adyacencias[pos] = [(i + dx, j + dy) for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]
+                                if 0 <= i + dx < tam_matriz[0] and 0 <= j + dy < tam_matriz[1]]
+    return adyacencias
+
+
+# Restricciones del problema
+def setup_constraints(problem, aviones, talleres_std, talleres_spc, parkings, franjas_horarias, tam_matriz):
+    adyacencias = precalculate_adyacentes(tam_matriz)
+
+    # Definición de variables y dominios optimizados
+    for avion in aviones:
+        for franja in range(franjas_horarias):
+            var = f"A{avion['id']}_T{franja}"
+            if avion['restr']:
+                problem.addVariable(var, talleres_spc)  # Solo talleres especialistas
+            else:
+                problem.addVariable(var, talleres_std + talleres_spc + parkings)
+
+    # Restricción: Todo avión tiene una posición única por franja horaria
+    for franja in range(franjas_horarias):
+        problem.addConstraint(AllDifferentConstraint(), [f"A{avion['id']}_T{franja}" for avion in aviones])
+
+    # Restricción de adyacencia para maniobrabilidad
+    def check_adyacencia(*args):
+        for pos in args:
+            if pos in adyacencias:  # Verificar si la posición existe en adyacencias
+                if all(args.count(adj) > 0 for adj in adyacencias[pos]):
+                    return False
+        return True
+
+    for franja in range(franjas_horarias):
+        problem.addConstraint(check_adyacencia, [f"A{avion['id']}_T{franja}" for avion in aviones])
+
+    # Restricción: Evitar aviones JUMBO adyacentes
+    def check_jumbo_adyacentes(*args):
+        for i, pos1 in enumerate(args):
+            for j, pos2 in enumerate(args):
+                if i != j and pos1 in adyacencias and pos2 in adyacencias[pos1]:
+                    return False
+        return True
+
+    for franja in range(franjas_horarias):
+        problem.addConstraint(check_jumbo_adyacentes,
+                              [f"A{avion['id']}_T{franja}" for avion in aviones if avion['tipo'] == 'JMB'])
+
+    # Restricción: Máximo 2 aviones por taller (incluido JMB)
+    for franja in range(franjas_horarias):
+        for taller in talleres_std + talleres_spc:
+            problem.addConstraint(lambda *args: args.count(taller) <= 2,
+                                  [f"A{avion['id']}_T{franja}" for avion in aviones])
+
+    # Restricción: Solo un avión JMB por taller por franja horaria
+    for franja in range(franjas_horarias):
+        for taller in talleres_std + talleres_spc:
+            problem.addConstraint(lambda *args: sum(1 for val in args if val == taller) <= 1,
+                                  [f"A{avion['id']}_T{franja}" for avion in aviones if avion['tipo'] == 'JMB'])
+
+
+# Guardar resultados en archivo CSV
+def save_results(file_name, solutions):
+    with open(file_name, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([f"N. Sol: {len(solutions)}"])
+        for i, solution in enumerate(solutions):
+            writer.writerow([f"Solución {i + 1}:"])
+            for avion_id in set(key.split('_')[0] for key in solution.keys()):
+                posiciones = [f"{solution[var]}" for var in solution if var.startswith(avion_id)]
+                writer.writerow([f"{avion_id}: {', '.join(posiciones)}"])
+
+
+# Programa principal
+def main(file_path):
+    franjas_horarias, tam_matriz, talleres_std, talleres_spc, parkings, aviones = read_input_file(file_path)
     problem = Problem()
-
-    # Declaración de variables y dominios optimizados
-    for i, avion in enumerate(aviones):
-        for h in range(franjas_horarias):
-            if avion['T2'] > 0:  # Aviones con tareas tipo 2 deben ir a talleres SPC
-                problem.addVariable((i, h), talleres_spc)
-            else:  # Otros aviones pueden estar en talleres STD, SPC o parkings
-                problem.addVariable((i, h), talleres_std + talleres_spc + parkings)
-
-    # Restricciones
-    # 1. Cada avión en una única posición por franja horaria
-    for h in range(franjas_horarias):
-        problem.addConstraint(AllDifferentConstraint(), [(i, h) for i in range(len(aviones))])
-
-    # 2. Capacidad de talleres: máximo 2 aviones por taller, solo 1 tipo JMB
-    def capacity_constraint(*positions):
-        count = {}
-        for pos in positions:
-            if pos not in count:
-                count[pos] = {'total': 0, 'JMB': 0}
-            count[pos]['total'] += 1
-        for i, pos in enumerate(positions):
-            if aviones[i]['TIPO'] == 'JMB':
-                count[pos]['JMB'] += 1
-        return all(info['total'] <= 2 and info['JMB'] <= 1 for info in count.values())
-
-    for h in range(franjas_horarias):
-        problem.addConstraint(capacity_constraint, [(i, h) for i in range(len(aviones))])
-
-    # Resolución: obtener todas las soluciones
-    solutions = problem.getSolutions()  # Obtiene todas las soluciones factibles
+    setup_constraints(problem, aviones, talleres_std, talleres_spc, parkings, franjas_horarias, tam_matriz)
+    solutions = problem.getSolutions()
     print(f"Number of solutions: {len(solutions)}")
+    save_results(f"{file_path.split('.')[0]}.csv", solutions)
 
-    if solutions:
-        # Escribir todas las soluciones al archivo CSV
-        for idx, solution in enumerate(solutions):
-            escribir_csv(solution, franjas_horarias, len(aviones), idx + 1, output_path)
-    else:
-        print("No se encontraron soluciones factibles.")
 
 if __name__ == "__main__":
-    path_fichero = argumentos_programa()
-    buffer = leer_fichero(path_fichero)
-    csp_aircraft_maintenance(buffer, path_fichero)
+    import sys
+
+    if len(sys.argv) != 2:
+        print("Uso: python modelo_python_constrain.py <path input>")
+    else:
+        main(sys.argv[1])
