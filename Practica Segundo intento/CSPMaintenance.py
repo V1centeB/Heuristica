@@ -11,8 +11,9 @@ def initialize_csp_model(data):
     for airplane in data['airplanes']:
         for t in range(data['time_slots']):
             # Cada variable es la posición del avión en una franja horaria
-            problem.addVariable(f"airplane_{airplane['id']}_t{t}",
-                                data['std_workshops'] + data['spc_workshops'] + data['parkings'])
+            variable_name = f"airplane_{airplane['id']}_t{t}"
+            domain = data['std_workshops'] + data['spc_workshops'] + data['parkings']
+            problem.addVariable(variable_name, domain)
     return problem
 
 
@@ -29,56 +30,131 @@ def max_two_and_one_jumbo(*positions, airplane_types):
             return False
     return True
 
+def validate_airplanes_per_taller(positions, airplane_types):
+    """
+    Valida las combinaciones de aviones por taller:
+    - Máximo 2 aviones por taller.
+    - Permite 2 aviones STD o 1 JMB + 1 STD.
+    - Prohíbe más de 1 avión JMB en el mismo taller.
+    """
+    from collections import defaultdict
+    talleres = defaultdict(list)
+    for pos, airplane_type in zip(positions, airplane_types):
+        talleres[pos].append(airplane_type)
+    for aviones in talleres.values():
+        if len(aviones) > 2:  # No más de 2 aviones
+            return False
+        if aviones.count("JMB") > 1:  # No más de 1 JMB
+            return False
+        if len(aviones) == 2 and aviones != ["STD", "STD"] and not ("JMB" in aviones and "STD" in aviones):
+            return False
+    return True
+
+
+
+def make_constraint_function(airplane_types):
+    """
+    Devuelve una función que aplica las restricciones de taller.
+    """
+    def constraint(*positions):
+        return validate_airplanes_per_taller(positions, airplane_types)
+    return constraint
+
+
+
+
 def ensure_t2_in_spc(problem, data):
     """
-    Restricción: Si un avión tiene tareas T2 (especialista),
-    al menos una franja horaria debe asignarse a un taller especialista (SPC).
-    Además, las tareas T2 no pueden realizarse en talleres estándar.
+    Restricción: Todas las tareas T2 deben asignarse a talleres SPC.
     """
     spc_positions = data['spc_workshops']
     airplanes = data['airplanes']
 
     for airplane in airplanes:
-        if airplane['tasks_t2'] > 0:  # Solo para aviones con tareas tipo 2
-            # Variables de posición para todas las franjas horarias
-            task_vars = [f"airplane_{airplane['id']}_t{t}" for t in range(data['time_slots'])]
+        tasks_t2 = airplane['tasks_t2']
 
-            # Asegurar que al menos una posición esté en SPC
-            problem.addConstraint(
-                lambda *positions: any(pos in spc_positions for pos in positions),
-                task_vars
-            )
+        # Aplicar restricción solo si hay tareas T2
+        if tasks_t2 > 0:
+            for t in range(tasks_t2):
+                if t < data['time_slots']:
+                    variable_name = f"airplane_{airplane['id']}_t{t}"
 
-            # Restringir las primeras tareas T2 a talleres SPC
-            for t in range(min(airplane['tasks_t2'], data['time_slots'])):  # Evitar índice fuera de rango
-                problem.addConstraint(
-                    lambda pos: pos in spc_positions,
-                    [f"airplane_{airplane['id']}_t{t}"]
-                )
+                    # Verificar si la variable existe en el modelo
+                    if variable_name in problem._variables:
+                        problem.addConstraint(
+                            partial(lambda pos, spc: pos in spc, spc=spc_positions),
+                            [variable_name]
+                        )
+                    else:
+                        print(f"Advertencia: La variable {variable_name} no está en el modelo.")
 
 
 def ensure_adjacent_vacancy(*positions):
     """
-    Restricción: Si una posición está ocupada, al menos una posición adyacente debe estar vacía.
+    Verifica que si un taller tiene ocupación, al menos una posición adyacente esté vacía.
+    No marca posiciones con 2 aviones válidos como ocupadas completamente.
     """
-    occupied_positions = set(positions)  # Todas las posiciones asignadas en esta franja horaria
+    from collections import Counter, defaultdict
 
-    for pos in occupied_positions:
-        if pos is None:  # Si no hay avión asignado a esta posición
+    talleres = defaultdict(list)
+    for pos in positions:
+        if pos is not None:
+            talleres[pos].append(pos)
+
+    for pos, ocupantes in talleres.items():
+        # Si el taller tiene más de 2 ocupantes, lo consideramos totalmente ocupado (restricción ya gestionada).
+        if len(ocupantes) > 2:
             continue
-        x, y = pos  # Desempaquetar coordenadas (x, y)
+
+        # Analizamos la vecindad de esta posición
+        x, y = pos
         adjacent_positions = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
 
         # Verificar si al menos una posición adyacente no está ocupada
-        if all(adj in occupied_positions for adj in adjacent_positions):
-            return False  # Si todas las posiciones adyacentes están ocupadas, restricción violada
-    return True  # La restricción se cumple
+        if all(adj in talleres for adj in adjacent_positions):
+            return False  # Todas las posiciones adyacentes están ocupadas
+    return True
+
 
 
 def only_one_jumbo(*positions):
     """Restricción: Solo 1 avión JUMBO por taller."""
     from collections import Counter
     return all(count <= 1 for count in positions if count == "JMB")
+
+
+def restrict_parking_usage(problem, data):
+    """
+    Restricción: Un avión puede estar en PRK solo si no tiene tareas asignadas en esa franja horaria.
+    """
+    parkings = data['parkings']
+    std_workshops = data['std_workshops']
+    spc_workshops = data['spc_workshops']
+
+    for airplane in data['airplanes']:
+        tasks_t2 = airplane['tasks_t2']
+        tasks_t1 = airplane['tasks_t1']
+
+        for t in range(data['time_slots']):
+            variable = f"airplane_{airplane['id']}_t{t}"
+
+            # Restricción: si el tiempo t es menor a tareas T2 + T1, debe estar en un taller
+            if t < tasks_t2:
+                problem.addConstraint(
+                    lambda pos, spc=spc_workshops: pos in spc,
+                    [variable]
+                )
+            elif t < tasks_t2 + tasks_t1:
+                problem.addConstraint(
+                    lambda pos, std=std_workshops: pos in std,
+                    [variable]
+                )
+            else:
+                # Restricción: si no tiene tareas pendientes, puede estar en PRK
+                problem.addConstraint(
+                    lambda pos, prk=parkings: pos in prk,
+                    [variable]
+                )
 
 
 def no_adjacent_positions(p1, p2):
@@ -89,68 +165,51 @@ def no_adjacent_positions(p1, p2):
 
 
 def add_constraints(problem, data):
-    """
-    Adds all the constraints to the problem.
-    """
     airplanes = data['airplanes']
     time_slots = data['time_slots']
 
-    # Restricción 1: Máximo 2 aviones y solo 1 JUMBO por taller en una franja horaria
+    # Restricción 1: Máximo 2 aviones y solo 1 JUMBO por taller
     for t in range(time_slots):
         vars_at_time = [f"airplane_{airplane['id']}_t{t}" for airplane in airplanes]
         airplane_types = [airplane['type'] for airplane in airplanes]
-        problem.addConstraint(
-            lambda *positions: max_two_and_one_jumbo(*positions, airplane_types=airplane_types),
-            vars_at_time
-        )
+        problem.addConstraint(make_constraint_function(airplane_types), vars_at_time)
 
-    # Restricción 2: JUMBO no pueden compartir taller
-    for t in range(time_slots):
-        jumbo_vars = [f"airplane_{airplane['id']}_t{t}" for airplane in airplanes if airplane['type'] == "JMB"]
-        problem.addConstraint(lambda *positions: len(set(positions)) == len(positions), jumbo_vars)
-
-    # Restricción 3: Tareas T2 en SPC
+    # Restricción 2: Asegurar tareas T2 en talleres especializados
     ensure_t2_in_spc(problem, data)
-
-    # Restricción 3: Posiciones adyacentes para maniobrabilidad
-    for t in range(time_slots):
-        for i, airplane1 in enumerate(airplanes):
-            for j, airplane2 in enumerate(airplanes):
-                if i < j:
-                    var1 = f"airplane_{airplane1['id']}_t{t}"
-                    var2 = f"airplane_{airplane2['id']}_t{t}"
-                    problem.addConstraint(no_adjacent_positions, [var1, var2])
 
     # Restricción 5: Al menos una posición adyacente debe estar vacía
     for t in range(time_slots):
         vars_at_time = [f"airplane_{airplane['id']}_t{t}" for airplane in airplanes]
         problem.addConstraint(ensure_adjacent_vacancy, vars_at_time)
 
-    # Restricción 6: Los aviones JUMBO no pueden ocupar posiciones adyacentes
-    jumbos = [airplane for airplane in airplanes if airplane['type'] == "JMB"]
-    for t in range(time_slots):
-        for i, jumbo1 in enumerate(jumbos):
-            for j, jumbo2 in enumerate(jumbos):
-                if i < j:
-                    var1 = f"airplane_{jumbo1['id']}_t{t}"
-                    var2 = f"airplane_{jumbo2['id']}_t{t}"
-                    problem.addConstraint(no_adjacent_positions, [var1, var2])
-
-    # Restricción 4: Orden de tareas tipo 2 antes que tipo 1
+    # Restricción 4: Asegurar el orden de tareas T2 antes de T1
     for airplane in airplanes:
-        if airplane['order'] == 'T':
-            for t in range(airplane['tasks_t2']):
+        tasks_t2 = airplane['tasks_t2']
+        tasks_t1 = airplane['tasks_t1']
+        for t in range(tasks_t2):
+            if t < time_slots:
+                variable_name = f"airplane_{airplane['id']}_t{t}"
                 problem.addConstraint(
                     lambda pos: pos in data['spc_workshops'],
-                    [f"airplane_{airplane['id']}_t{t}"]
+                    [variable_name]
                 )
+        for t in range(tasks_t2, tasks_t2 + tasks_t1):
+            if t < time_slots:
+                variable_name = f"airplane_{airplane['id']}_t{t}"
+                problem.addConstraint(
+                    lambda pos: pos in data['std_workshops'],
+                    [variable_name]
+                )
+
+    restrict_parking_usage(problem, data)
+
 
 
 def write_output_file(output_file, solutions, data):
     """Writes the solutions in the desired format."""
     with open(output_file, 'w') as file:
         file.write(f"N. Sol: {len(solutions)}\n")
-        for i, solution in enumerate(solutions[:100], start=1):
+        for i, solution in enumerate(solutions[:5], start=1):
             file.write(f"\nSolución {i}:\n")
             for airplane in data['airplanes']:
                 positions = [solution[f"airplane_{airplane['id']}_t{t}"] for t in range(data['time_slots'])]
