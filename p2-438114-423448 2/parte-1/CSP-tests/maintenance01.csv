@@ -1,0 +1,601 @@
+N. Sol: 10368
+
+Solución 1:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 2:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 3:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 4:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 5:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 6:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 7:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 8:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 9:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 10:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 11:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 12:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 13:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 14:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 15:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 16:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 17:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 18:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 19:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 20:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 21:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 22:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 23:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 24:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 25:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 26:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 27:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 28:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 29:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 30:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 31:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 32:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 33:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 34:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 35:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 36:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 37:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 38:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 39:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 40:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 41:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 42:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 43:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 44:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 45:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(2, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(0, 2)
+
+Solución 46:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 47:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 48:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 49:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 50:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 51:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 52:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 53:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 54:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 55:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 56:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 57:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 58:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 59:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 60:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 61:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 62:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 63:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 64:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 65:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 66:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 67:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 68:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 69:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 70:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 71:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 72:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 73:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 74:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 75:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(1, 1), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 76:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 77:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 78:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 79:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 80:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 81:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 82:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 83:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 84:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 85:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 86:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 87:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 88:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 89:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 90:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(2, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(0, 0), PRK(0, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(0, 2), PRK(2, 2)
+
+Solución 91:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 92:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 93:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 94:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 95:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 96:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(2, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 97:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 98:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(1, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 99:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(1, 2)
+4-JMB-T-0-0: PRK(0, 2), PRK(2, 2), PRK(2, 2)
+
+Solución 100:
+1-STD-T-1-1: SPC(2, 1), STD(2, 0), PRK(2, 2)
+2-JMB-F-1-0: STD(2, 0), PRK(0, 2), PRK(0, 2)
+3-STD-F-0-1: SPC(2, 1), PRK(1, 2), PRK(0, 2)
+4-JMB-T-0-0: PRK(2, 2), PRK(2, 2), PRK(2, 2)
